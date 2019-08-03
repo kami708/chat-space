@@ -30,14 +30,16 @@ Things you may want to cover:
 ### Association
 - has_many :messages
 - has_many :members
+- has_many :groups, through:  :members
 
 ## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false|
 ### Association
-- has_many :member
 - has_many :messages
+- has_many :members
+- has_many :user, through:  :members
 
 
 ## messageテーブル
@@ -48,8 +50,8 @@ Things you may want to cover:
 |user |references| foreign_key: true|
 |group |references| foreign_key: true|
 ### Association
-- 
-
+- belongs_to :group
+- belongs_to :user
 
 
 ## membersテーブル

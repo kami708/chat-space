@@ -1,14 +1,15 @@
 .flash-box
 .wrapper
   .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name kami
-        %ul.side-header__box__menu
-          %li.side-header__box__menu__new-group
-            %a{:href => "/groups/new"}
-              %i.fa.fa-edit
-          %li.side-header__box__menu__edit-user
-            %a{:href => "/users/1260/edit"}
+    .chat-side__header
+      .chat-side__header__box
+        %p.chat-side__header__box__users-name kami
+        %ul.chat-side__header__box__menu
+          %li.chat-side__header__box__menu__new-group
+            =link_to('/groups/new') do
+              %i.fab.fa-accusoft
+          %li.chat-side__header__box__menu__edit-user
+            =link_to('/users/1260/edit') do
               %i.fa.fa-cog
     .groups
+  .message-side

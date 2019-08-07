@@ -1,14 +1,41 @@
 .flash-box
+  .notice
 .wrapper
   .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name kami
-        %ul.side-header__box__menu
-          %li.side-header__box__menu__new-group
-            %a{:href => "/groups/new"}
-              %i.fa.fa-edit
-          %li.side-header__box__menu__edit-user
-            %a{:href => "/users/1260/edit"}
-              %i.fa.fa-cog
+    .chat-side__header
+      .chat-side__header__box
+        %p.chat-side__header__box__users-name kami
+        %ul.chat-side__header__box__menu
+          %li.chat-side__header__box__menu__new-group
+            = link_to "https://chat-space-sample.herokuapp.com/groups/new", class: "btn1" do
+              %i.far.fa-edit
+          %li.chat-side__header__box__menu__edit-user
+            = link_to "https://chat-space-sample.herokuapp.com/users/1260/edit", class: "btn2"do
+              %i.fas.fa-cog
+          
     .groups
+      .groups__index
+        %p.groups__index__group-name Sample
+        %ul.groups__index__text  hello!      
+  .message-side
+    .message-side__header
+      .message-side__header__box
+        .message-side__header__box__in
+          %p.message-side__header__box__in__group-name Sample
+          %dt.message-side__header__box__in__group-members Members kami nao      
+          %button.message-side__header__box__in__btn.btn-primary Edit
+    .message-side__contents
+      .message-side__contents__box
+        .message-side__contents__box__user
+          .message-side__contents__box__user__name kami
+          .message-side__contents__box__user__create-at 2019/07/29 17:58
+        .message-side__contents__box__text こんにちわ！
+    .message-side__footer
+      .message-side__footer__form
+        =form_tag do
+          .input-box
+            %input{type: "text", size: "50", placeholder: "type a message"}
+            %label.file-label{title: "ファイルを選択"}
+              %i.fas.fa-image
+          %br
+          %input{type: "submit", value: "Send"} 

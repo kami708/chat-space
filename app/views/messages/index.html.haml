@@ -34,8 +34,8 @@
       .message-side__footer__form
         =form_tag do
           .input-box
-            %input{:type => "text", :name =>"image", :size => "50", :placeholder =>"type a message"}
+            %input{type: "text", size: "50", placeholder: "type a message"}
             %label.file-label{title: "ファイルを選択"}
               %i.fas.fa-image
           %br
-          %input{:type => "submit", :value => "Send"} 
+          %input{type: "submit", value: "Send"} 

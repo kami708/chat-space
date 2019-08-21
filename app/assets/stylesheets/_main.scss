@@ -1,3 +1,25 @@
+@mixin group-name_style() {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+@mixin group-text_style() {
+  position: absolute;
+  top: 27px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+@mixin icon_style() {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 .flash-box{
   color: white;
   font-size: 1rem;
@@ -35,23 +57,11 @@
           display: flex;
           &__new-group{
             margin-left: 0.3rem;
-            .btn1{
-              color: white;
-              i::before{
-                @include icon_style();
-                content: "\f044";
-              }
-            }
+            color: white;
           }
           &__edit-user{
             margin-left: 0.3rem;
-            .btn2{
-              color: white;
-              i::before{
-                @include icon_style();
-                content: "\f013";
-              }
-            }
+            color: white;
           }
         }
       }

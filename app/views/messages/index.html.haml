@@ -1,22 +1,25 @@
-.flash-box
-  .notice
 .wrapper
   .chat-side
     .chat-side__header
       .chat-side__header__box
-        %p.chat-side__header__box__users-name kami
+        %p.chat-side__header__box__users-name 
+          = current_user.name
         %ul.chat-side__header__box__menu
           %li.chat-side__header__box__menu__new-group
-            = link_to "https://chat-space-sample.herokuapp.com/groups/new", class: "btn1" do
-              %i.far.fa-edit
+            = link_to new_group_path do
+              = fa_icon 'edit', class: 'icon'
           %li.chat-side__header__box__menu__edit-user
-            = link_to "https://chat-space-sample.herokuapp.com/users/1260/edit", class: "btn2"do
-              %i.fas.fa-cog
+            = link_to edit_user_path(current_user) do
+              = fa_icon 'cog', class: 'icon'
           
     .groups
       .groups__index
-        %p.groups__index__group-name Sample
-        %ul.groups__index__text  hello!      
+        - current_user.groups.each do |group|
+          = link_to group_messages_path(group) do
+            .group__name
+              = group.name
+            .group__message
+              メッセージはまだありません。 
   .message-side
     .message-side__header
       .message-side__header__box

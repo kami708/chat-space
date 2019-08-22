@@ -58,10 +58,12 @@
           &__new-group{
             margin-left: 0.3rem;
             color: white;
+            font-size: inherit;
           }
           &__edit-user{
             margin-left: 0.3rem;
             color: white;
+            font-size: inherit;
           }
         }
       }
@@ -76,10 +78,12 @@
         width: 100%;
         position: relative;
         &__group-name{
-          @include group-name_style();
+          font-size: 15px;
+          margin-bottom: 5px;
         }
-        &__text{
-          @include group-text_style();
+        &__group__message{
+          font-size: 15px;
+          margin-bottom: 40px;
         }
       }
     }
@@ -92,6 +96,7 @@
       height: 100px;
       width: 100%;
       border-bottom:thin solid #eeeeee; 
+      overflow: scroll;
       &__box{ 
         height: 100%;
         padding: 0 40px;
@@ -106,12 +111,21 @@
             font-weight: bold;
           }
           &__group-members{
-            position: absolute;
-            bottom: 0;
+            position: relative;
+            display: flex;
             font-size: 12px;
             color: #999999; 
+            &__head{
+              position: absolute;
+              top: 80px;
+            }
+            &__tail{
+              position: absolute;
+              top: 80px;
+              left: 70px;
+            }
           }
-          &__btn{
+          .btn{
             position: absolute;
             right: 0;
             top: 28px;
@@ -125,11 +139,11 @@
       } 
     }
     &__contents{
-      height: 609px;
+      height: 599px;
       width:calc(100vw - 300px);
+      overflow: scroll;
       &__box{
         padding: auto 40px;
-        height: 108px;
         width: 100%;
         &__user{
           display: flex;
@@ -140,7 +154,6 @@
           &__name{
             font-size: 20px;
             color: #333333;
-            font-weight: bold;
             font-weight: bold;
           }
           &__create-at{
@@ -156,52 +169,44 @@
       }
     }
     &__footer{
-      width:calc(100vw - 300px);
-      height: 90px;
+      background-color: #dddddd;
       position: fixed;
-      position: absolute;
-      bottom: 0;
-      background-color: #999999;
-      &__form{
-        padding: 20px 40px;
-        width: 100%;
-        form{
-          display: flex;
+      height: 90px;
+      padding: 20px 40px;
+      position: relative;
+      form{
+        display: flex;
+        .hidden{
+          display: none;
+        }
+        .form__message{
+          border: none;
+          position: relative;
           width: 100%;
-          .input-box{
-            position: relative;
-            width: 100%;
-            display: flex;
-            input[type="text"]{
-              height: 50px;
-              width: 100%;
-              padding: 0 40px 0 10px;
-              color: #434a54;
-              border-style: none;
-            }
-            label {
-              font-size: 1.3rem;
-              position: absolute;
-              top: 10px;
-              right: 10px;
-              cursor: pointer;
-              color: #0c0c0c;
-              i::before{
-                @include icon_style();
-                content: "\f03e";
-              }
-            }
+          height: 50px;
+          padding: 0 40px 0 10px;
+        }
+        .form__mask{
+          height: 50px;
+          padding: 0 40px 0 10px;
+          color: #434a54;
+          position: relative;
+          &__image{
+            font-size: 1.3rem;
+            position: absolute;
+            bottom: 10px;
+            right: 60px;
+            cursor: pointer;
+            color: #0c0c0c;
           }
-          input[type="submit"]{
-            font-size: 20px;
-            float: right;
-            margin-left: 15px; 
-            background-color: #38AEF0;
-            border: thin solid #38AEF0;
-            height: 50px;
-            width: 80px;
-            color: #fafafa;
-          }
+        }
+        input[type="submit"]{
+          margin-left: 0; 
+          background-color: #38AEF0;
+          border: thin solid #38AEF0;
+          height: 50px;
+          width: 100px;
+          color: #fafafa;
         }
       }
     }

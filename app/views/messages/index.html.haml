@@ -16,9 +16,9 @@
       .groups__index
         - current_user.groups.each do |group|
           = link_to group_messages_path(group) do
-            .group__name
+            .groups__index__group__name
               = group.name
-            .group__message
+            .groups__index__group__message
               = group.show_last_message 
   .message-side
     .message-side__header
@@ -30,11 +30,10 @@
     .message-side__contents
       = render @messages
     .message-side__footer
-      .message-side__footer__form
-        = form_for [@group, @message] do |f|
-          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-          .form__mask
-            = f.label :image, class: 'form__mask__image' do
-              = fa_icon 'picture-o', class: 'icon'
-              = f.file_field :image, class: 'hidden'
-          = f.submit 'Send', class: 'form__submit'
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

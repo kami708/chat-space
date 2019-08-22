@@ -111,12 +111,21 @@
             font-weight: bold;
           }
           &__group-members{
-            position: absolute;
-            bottom: 0;
+            position: relative;
+            display: flex;
             font-size: 12px;
             color: #999999; 
+            &__head{
+              position: absolute;
+              top: 80px;
+            }
+            &__tail{
+              position: absolute;
+              top: 80px;
+              left: 70px;
+            }
           }
-          &__btn{
+          .btn{
             position: absolute;
             right: 0;
             top: 28px;

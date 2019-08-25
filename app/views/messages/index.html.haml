@@ -31,13 +31,12 @@
               %li.message-side__header__box__in__group-members__head
                 Members:
               %li.message-side__header__box__in__group-members__tail
-                
-
+                = @group.users.name
           = link_to "Edit", edit_group_path(@group), method: :get, class: 'btn'
     .message-side__contents
       = render @messages
     .message-side__footer
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], id: 'new_message' do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
         .form__mask
           = f.label :image, class: 'form__mask__image' do

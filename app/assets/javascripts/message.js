@@ -40,7 +40,7 @@ $(document).on('turbolinks:load',function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.message-side__contents').append(html)
-      $('.form__message').val('');
+      $('#new_message')[0].reset();
       $('.message-side__contents').animate({ scrollTop: $('.message-side__contents')[0].scrollHeight});
     })
     .fail(function(data){

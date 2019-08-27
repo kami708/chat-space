@@ -30,8 +30,9 @@
             %ul.message-side__header__box__in__group-members
               %li.message-side__header__box__in__group-members__head
                 Members:
-              %li.message-side__header__box__in__group-members__tail
-                = @group.users.name
+              - @group.users.each do |user|
+                %li.message-side__header__box__in__group-members__tail
+                  = user.name
           = link_to "Edit", edit_group_path(@group), method: :get, class: 'btn'
     .message-side__contents
       = render @messages
